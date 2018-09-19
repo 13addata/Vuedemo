@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="switch.css">
+    <script src="jquery.js"></script>
+</head>
+<style>
+    body {
+        font-family:"Microsoft YaHei";
+    }
+    
+    header .tab{
+        width: 600px;
+        margin: 0 auto;
+        padding: 10px 0 ;
+        color: #01AE79;
+        background: #222;
+    }
+
+    header .tab h1 {
+        margin: 20px;
+    }
+    header .tab .wel, header .tab .toggle {
+        display: inline-block;
+    }
+
+    header .tab .toggle {
+        position: relative;
+        top: 14px;
+        left: 160px;
+    }
+    #tab{
+        width: 600px;
+        margin: 0 auto;
+    }
+    .tab-tit{
+        font-size: 0;
+        width: 600px;
+    }
+    .tab-tit a{
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        width: 25%;
+        text-align: center;
+        background: #ccc;
+        color: #333;
+        text-decoration: none;
+    }
+    .tab-tit .cur{
+        background: #09f;
+        color: #fff;
+    }
+    .tab-con div{
+        border: 1px solid #ccc;
+        height: 400px;
+        padding-top: 20px;
+    }
+</style>
+<body>
+
+<div id="tab">
+    <header>
+        <div class="tab">
+            <div class="wel"><h1>Welcome to Vue.js</h1></div>
+            <div class="toggle">
+                <div class="switch on" onclick="toggle()" @click="ok=!ok"></div>
+            </div>
+        </div>
+    </header>
+    <div class="tab-tit">
+        <a href="javascript:void(0);" @click="clkhtml" :class="{'cur':curId===1}">html</a>
+        <a href="javascript:void(0);" @click="clkcss" :class="{'cur':curId===2}">css</a>
+        <a href="javascript:void(0);" @click="clkjs" :class="{'cur':curId===3}">javascript</a>
+        <a href="javascript:void(0);" @click="clkvue" :class="{'cur':curId===4}">vue</a>
+    </div>
+    <div class="tab-con" v-show="ok">
+        <div v-html="content"><br></div>
+    </div>
+</div>
+</body>
+<script src="vue.js"></script>
+<script src="script.js"></script>
+
+<script>
+    function toggle(){
+        $('.switch').toggleClass('off  on');
+    }
+</script>
+</html>
